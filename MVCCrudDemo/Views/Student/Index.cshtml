@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MVCCrudDemo.Models.Student>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>@Html.ActionLink("Create New","Create")</p>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(s=>s.Id)</th>
+        <th>@Html.DisplayNameFor(s=>s.FirstName)</th>
+        <th>@Html.DisplayNameFor(s=>s.LastName)</th>
+        <th>@Html.DisplayNameFor(s=>s.Address)</th>
+        <th>@Html.DisplayNameFor(s=>s.Gender)</th>
+        <th>@Html.DisplayNameFor(s=>s.EnNo)</th>
+        <th>@Html.DisplayNameFor(s=>s.MobileNo)</th>
+        <th></th>
+    </tr>
+    @foreach(var stud in Model)
+    { 
+        <tr>
+            <td>@Html.DisplayFor(s=>stud.Id)</td>
+            <td>@Html.DisplayFor(s=>stud.FirstName)</td>
+            <td>@Html.DisplayFor(s=>stud.LastName)</td>
+            <td>@Html.DisplayFor(s=>stud.Address)</td>
+            <td>@Html.DisplayFor(s=>stud.Gender)</td>
+            <td>@Html.DisplayFor(s=>stud.EnNo)</td>
+            <td>@Html.DisplayFor(s=>stud.MobileNo)</td>
+            
+            <td>
+                @Html.ActionLink("Edit","Edit", new {id=stud.Id}) |
+                @Html.ActionLink("Details","Details", new {id=stud.Id}) |
+                @Html.ActionLink("Delete","Delete", new {id=stud.Id})
+            </td>
+        </tr>
+    }
+</table>
